@@ -1,3 +1,4 @@
-REACT APP
+REACT Chatapplication
 
-FIREBASE
+similar to whatsapp desktop
+CRUD from FIREBASE databse
