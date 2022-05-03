@@ -13,7 +13,7 @@ import ChatLandingScreen from "./ChatLandingScreen";
 import ChatHeader from "./ChatHeader";
 import { Drawer, Hidden } from "@material-ui/core";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+// import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import CloseIcon from "@material-ui/icons/Close";
 import TooltipCustom from "../TooltipCustom";
 // import "emoji-mart/css/emoji-mart.css";
@@ -138,8 +138,8 @@ function Chat({ isRoomExist }) {
                 </span>
                 <div className="chat_message_box">
                   <div
-                    className={`chat_msg_box_text ${
-                      msg.uid === user.uid && "chat__message_box_text_sender"
+                    className={`chat_message_box_text ${
+                      msg.uid === user.uid && "chat_message_box_text_sender"
                     }`}
                   >
                     {msg.message ? msg.message : null}
@@ -160,7 +160,9 @@ function Chat({ isRoomExist }) {
                               minute: "numeric",
                             })}
                             {msg.uid === user.uid ? (
-                              <DoneIcon fontSize="small" />
+                              <>
+                                <DoneIcon />
+                              </>
                             ) : null}
                           </span>
                         </div>
@@ -172,9 +174,7 @@ function Chat({ isRoomExist }) {
                               hour12: true,
                               minute: "numeric",
                             })}
-                            {msg.uid === user.uid ? (
-                              <AlarmIcon fontSize="small" />
-                            ) : null}
+                            {msg.uid === user.uid ? <AlarmIcon /> : null}
                           </span>
                         </div>
                       )}

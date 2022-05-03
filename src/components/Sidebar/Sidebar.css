@@ -1,7 +1,7 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    flex: 0.35;
+    flex: 35%;
     height: 100%;
     max-width: 30vw;
     min-width: 20vw;

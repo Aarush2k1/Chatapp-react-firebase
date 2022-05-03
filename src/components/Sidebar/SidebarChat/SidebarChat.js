@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 import db from "../../../services/firebase";
 
 function SidebarChat({ id, name }) {
+  const formatDate = (dateString) => {
+    const options = { hour: "2-digit", minute: "2-digit" };
+    return new Date(dateString.toDate()).toLocaleTimeString(undefined, options);
+  };
+
   const [messages, setMessages] = useState([]);
   useEffect(() => {
     if (id) {
@@ -32,6 +37,9 @@ function SidebarChat({ id, name }) {
           ) : null}
           <p>{messages[0]?.message}</p>
         </div>
+        <span className="sidebarChat_info_time">
+          {messages[0]?.timestamp && formatDate(messages[0].timestamp)}
+        </span>
       </div>
     </Link>
   );

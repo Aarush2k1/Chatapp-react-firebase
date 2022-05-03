@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 
 import "./ChatHeader.css";
 import TooltipCustom from "../TooltipCustom";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import IconButton from "@material-ui/core/IconButton";
 import { Avatar, Hidden } from "@material-ui/core";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import DropdownMenu from "../DropdownMenu";
 
 function ChatHeader({ chatName, chatsId, _chatId, msgs, db, isRoomExist }) {
@@ -30,9 +33,6 @@ function ChatHeader({ chatName, chatsId, _chatId, msgs, db, isRoomExist }) {
       setIsLastMessage(false);
     }
   }, [msgs, chatsId]);
-
-  // console.log("ROOOM ID", chatsId);
-  // console.log("__ROOOM ID", _chatId);
 
   const getDateFromMessage = () => {
     return new Date(
@@ -70,22 +70,18 @@ function ChatHeader({ chatName, chatsId, _chatId, msgs, db, isRoomExist }) {
   };
 
   const selectMessages = () => {
-    const selectMessages = "selectMessages";
     alert("Select Messages is not yet  available!");
   };
 
   const muteNotifications = () => {
-    const muteNotifications = "muteNotifications";
     alert("Mute Notifications is not yet available!");
   };
 
   const clearMessages = () => {
-    const clearMessages = "clearMessages";
     alert("Clear Messages is not yet available!");
   };
 
   const deleteRoom = () => {
-    const roomDeleted = "roomDeleted";
     db.collection("chats")
       .doc(chatsId)
       .delete()
@@ -134,6 +130,15 @@ function ChatHeader({ chatName, chatsId, _chatId, msgs, db, isRoomExist }) {
   ];
   return (
     <div className="chat_header">
+      <Hidden smUp>
+        <Link to="/">
+          <div className="chat__back_button">
+            <IconButton>
+              <ArrowBackIcon />
+            </IconButton>
+          </div>
+        </Link>
+      </Hidden>
       <Avatar
         src={`https://avatars.dicebear.com/api/avataaars/${chatsId}.svg`}
       />
@@ -144,9 +149,9 @@ function ChatHeader({ chatName, chatsId, _chatId, msgs, db, isRoomExist }) {
           {isLastMessage ? (
             <>
               {showDate ? (
-                <p>Last seen {getDateFromMessage()}</p>
+                <p class="chat_lastseen">Last seen {getDateFromMessage()}</p>
               ) : (
-                <p>Last seen {getDateLocal()}</p>
+                <p class="chat_lastseen">Last seen {getDateLocal()}</p>
               )}
             </>
           ) : null}

@@ -27,42 +27,7 @@
 
 .chat_headerInfo>p {
     color: #4a4a4a;
-}
-
-.chat_attachFile_drawerHeader {
-    background-color: #00BFA5;
-}
-
-.chat_attachFile_drawerHeader_container {
-    display: flex;
-    align-items: center;
-}
-
-.chat_attachFile_drawerHeader_container>p {
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.chat_attachFile_drawerHeader_container>.MuiIconButton-root {
-    color: white !important;
-    margin: 0 10px 0 10px;
-}
-
-.chat_attachFile_drawerContent {
-    background-color: #E6E6E6;
-    height: 100%;
-}
-
-.chat_attachFile_drawerContent_photo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.chat_attachFile_drawerContent_photo>img {
-    height: 244px;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 600px) {
