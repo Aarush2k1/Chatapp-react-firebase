@@ -1,4 +1,7 @@
-REACT Chatapplication
+REACT public room chat application
 
 similar to whatsapp desktop
-CRUD from FIREBASE databse
+
+FIREBASE
+
+Realtime chat using firestore.
